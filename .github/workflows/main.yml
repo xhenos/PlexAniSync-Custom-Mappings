@@ -1,0 +1,30 @@
+name: Convert
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - mappings/**
+jobs:
+  converter:
+    name: Run converter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: fabasoad/yaml-json-xml-converter-action@main
+        id: series-tvdb-en-xml
+        with:
+          path: 'series-tvdb.en.yaml'
+          from: 'yaml'
+          to: 'xml'
+      - name: Print series-tvdb-en-xml result
+        run: echo "${{ steps.series-tvdb-en-xml.outputs.data }}"
+      - uses: fabasoad/yaml-json-xml-converter-action@main
+        id: movies-tmdb-en-xml
+        with:
+          path: 'movies-tmdb.en.yaml'
+          from: 'yaml'
+          to: 'xml'
+      - name: Print movies-tmdb-en-xml result
+        run: echo "${{ steps.movies-tmdb-en-xml.outputs.data }}
