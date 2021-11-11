@@ -15,7 +15,7 @@ jobs:
       - uses: fabasoad/yaml-json-xml-converter-action@main
         id: series-tvdb-en-xml
         with:
-          path: 'series-tvdb.en.yaml'
+          path: 'mappings/series-tvdb.en.yaml'
           from: 'yaml'
           to: 'xml'
       - name: Print series-tvdb-en-xml result
@@ -23,7 +23,7 @@ jobs:
       - uses: fabasoad/yaml-json-xml-converter-action@main
         id: movies-tmdb-en-xml
         with:
-          path: 'movies-tmdb.en.yaml'
+          path: 'mappings/movies-tmdb.en.yaml'
           from: 'yaml'
           to: 'xml'
       - name: Print movies-tmdb-en-xml result
