@@ -19,8 +19,7 @@ jobs:
     - name: Install prerequisites
       run: |
         python -m pip install --upgrade pip
-        pip install oyaml
-        pip install prettytable
+        pip install oyaml prettytable loremipsum argparse
     - name: Install yaml-to-table
       run: wget https://raw.githubusercontent.com/ishswar/yaml-to-table/master/yaml_to_table.py
     - name: Convert Series-TVDB-English from YAML to Table
