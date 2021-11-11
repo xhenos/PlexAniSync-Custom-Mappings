@@ -17,6 +17,6 @@ jobs:
         with:
           path: 'mappings/abc.yaml'
           from: 'yaml'
-          to: 'yaml'
+          to: 'xml'
       - name: Print abc result
         run: echo `${{ steps.abc.outputs.data }}`
