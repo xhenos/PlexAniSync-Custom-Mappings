@@ -19,4 +19,4 @@ jobs:
           from: 'yaml'
           to: 'yaml'
       - name: Print abc result
-        run: echo "${{ steps.abc.outputs.data }}"
+        run: echo `${{ steps.abc.outputs.data }}`
