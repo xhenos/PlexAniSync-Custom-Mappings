@@ -13,18 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: fabasoad/yaml-json-xml-converter-action@main
-        id: series-tvdb-en-xml
+        id: abc
         with:
-          path: 'mappings/series-tvdb.en.yaml'
+          path: 'mappings/abc.yaml'
           from: 'yaml'
           to: 'xml'
       - name: Print series-tvdb-en-xml result
-        run: echo "${{ steps.series-tvdb-en-xml.outputs.data }}"
-      - uses: fabasoad/yaml-json-xml-converter-action@main
-        id: movies-tmdb-en-xml
-        with:
-          path: 'mappings/movies-tmdb.en.yaml'
-          from: 'yaml'
-          to: 'xml'
-      - name: Print movies-tmdb-en-xml result
-        run: echo "${{ steps.movies-tmdb-en-xml.outputs.data }}"
+        run: echo "${{ steps.abc.outputs.data }}"
