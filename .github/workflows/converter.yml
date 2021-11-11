@@ -24,3 +24,8 @@ jobs:
       run: wget https://raw.githubusercontent.com/ishswar/yaml-to-table/master/yaml_to_table.py
     - name: Convert Series-TVDB-English from YAML to Table
       run: python yaml_to_table.py --inputFile mappings/series-tvdb.en.yaml --out html
+    - name: Push files to gh-pages branch
+      uses: EndBug/add-and-commit@v7
+      with:
+        add: mappings/series-tvdb.en.doc.html
+        branch: gh-pages
