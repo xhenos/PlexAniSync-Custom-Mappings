@@ -27,4 +27,4 @@ jobs:
           from: 'yaml'
           to: 'xml'
       - name: Print movies-tmdb-en-xml result
-        run: echo "${{ steps.movies-tmdb-en-xml.outputs.data }}
+        run: echo "${{ steps.movies-tmdb-en-xml.outputs.data }}"
