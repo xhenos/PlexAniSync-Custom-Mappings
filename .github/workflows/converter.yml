@@ -16,8 +16,11 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    - name: Install yaml-to-table
+    - name: Install prerequisites
       run: |
-        wget https://raw.githubusercontent.com/ishswar/yaml-to-table/master/yaml_to_table.py
+        python -m pip install --upgrade pip
+        pip install oyaml
+    - name: Install yaml-to-table
+      run: wget https://raw.githubusercontent.com/ishswar/yaml-to-table/master/yaml_to_table.py
     - name: Convert Series-TVDB-English from YAML to Table
       run: python yaml_to_table.py --inputFile mappings/series-tvdb.en.yaml --out html
