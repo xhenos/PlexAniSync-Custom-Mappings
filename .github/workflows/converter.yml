@@ -6,17 +6,19 @@ on:
       - main
 #    paths:
 #      - mappings/**
+
 jobs:
-  converter:
-    name: Run converter
+  convert-mappings:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: fabasoad/yaml-json-xml-converter-action@main
-        id: abc
-        with:
-          path: 'mappings/abc.yaml'
-          from: 'yaml'
-          to: 'xml'
-      - name: Print abc result
-        run: echo `${{ steps.abc.outputs.data }}`
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install yaml-to-table
+      run: |
+        python -m pip install --upgrade pip
+        pip install git+git://github.com/ishswar/yaml-to-table.git@master
+    - name: Convert Series-TVDB-English from YAML to Table
+      run: python yaml_to_table.py --inputFile 'mappings/series-tvdb.en.yaml' --out html
